@@ -1,6 +1,9 @@
+//import mysql
 const mysql = require("mysql");
+//allows use of promisify from library
 const util = require("util");
 
+//create connection with mysql
 const connection = mysql.createConnection({
     host: "localhost",
     user: "root",
