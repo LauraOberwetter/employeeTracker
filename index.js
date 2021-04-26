@@ -2,11 +2,6 @@ const db = require("./db") //import database connection
 require("console.table") //allows clean display of tabular data
 const inquirer = require('inquirer'); // require inquirer
 
-/////////////////////////start inquirer
-// connection.connect((err) => {
-//     if (err) throw err;
-//     startApp();
-//   });
 
 const startApp = () => {
     inquirer
@@ -65,14 +60,41 @@ const startApp = () => {
         }
       });
   };
-  ////////////////
 
 //add departments // these functions need to change so we are seeing the database with the new addition
-async function addDepartment() {
-    let newDepartment = await db.insertIntoDepartments()
-    console.table(newDepartment)
-    startApp();
+const addDepartment = async () => {
+
+    inquirer.prompt([
+        {
+            name: 'newDepartment',
+            type: 'input',
+            message: 'Enter the name of the new department:'
+        },
+        {
+            name: 'departmentID',
+            type: 'number',
+            message: 'New department ID:'
+        },
+    ])
+        .then((answer) => {
+            connection.query(
+                "INSERT INTO departments (name) VALUES ()",
+                {
+                    name: answer.newDepartment,
+                    id: answer.departmentIDy,
+                },
+                (err) => {
+                    if (err) throw err;
+                    console.log('Your new department created successfully!');
+                }
+            )
+        })
+    //startApp();
 }
+    // let newDepartment = await db.insertIntoDepartments()
+    // console.table(newDepartment)
+    
+
 
 //add roles
 async function addRoles() {

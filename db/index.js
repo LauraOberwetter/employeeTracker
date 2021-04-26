@@ -6,12 +6,12 @@ class DB {
     constructor(connection){
         this.connection = connection
     }
-    insertIntoDepartments() {
-        return this.connection.query(
-            "INSERT INTO departments (name) VALUES ()"
-        )   
+    // insertIntoDepartments() {
+    //     return this.connection.query(
+    //         "INSERT INTO departments (name) VALUES ()"
+    //     )   
 
-    }
+    // }
     insertIntoRoles() {
         return this.connection.query(
             "INSERT INTO roles (title, salary, department_id) VALUES ()"
