@@ -1,4 +1,5 @@
 const db = require("./db") //import database connection
+const connection = require('./db/connection'); //import connection file
 require("console.table") //allows clean display of tabular data
 const inquirer = require('inquirer'); // require inquirer
 
@@ -78,25 +79,23 @@ const addDepartment = async () => {
     ])
         .then((answer) => {
             connection.query(
-                "INSERT INTO departments (name) VALUES ()",
+                "INSERT INTO department (name) VALUES (id)",
                 {
                     name: answer.newDepartment,
-                    id: answer.departmentIDy,
+                    id: answer.departmentID,
                 },
                 (err) => {
                     if (err) throw err;
-                    console.log('Your new department created successfully!');
+                    console.log('Your new department created successfully!')
+                    startApp();
                 }
             )
         })
-    //startApp();
+
 }
-    // let newDepartment = await db.insertIntoDepartments()
-    // console.table(newDepartment)
-    
 
 
-//add roles
+//add role
 async function addRoles() {
     let newRole = await db.insertIntoRoles()
     console.table(newRole)
