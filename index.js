@@ -3,10 +3,10 @@ require("console.table") //allows clean display of tabular data
 const inquirer = require('inquirer'); // require inquirer
 
 /////////////////////////start inquirer
-connection.connect((err) => {
-    if (err) throw err;
-    startApp();
-  });
+// connection.connect((err) => {
+//     if (err) throw err;
+//     startApp();
+//   });
 
 const startApp = () => {
     inquirer
@@ -115,4 +115,5 @@ async function updateEmployees() {
     console.table(allEmployees)
 }
 
-//insert inquirer to build the interface
+//start app
+startApp();
