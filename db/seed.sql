@@ -28,7 +28,7 @@ VALUES
     ('Bobby', 'V', 1, 5),
     ('Karolina', 'B', 2, 5),
     ('Jordan', 'Z', 2, 5),
-    ('Perry', 'M', 3, 4),
+    ('Kendall', 'P', 3, 4),
     ('Laura', 'O', 4, 6),
     ('Iffat', 'B', 4, NULL),
     ('Duncan', 'H', 5, 6),

@@ -7,4 +7,13 @@ class DB {
         this.connection = connection
     }
     
+    selectAllEmployees() {
+        return this.connection.query(
+            "SELECT * from employee"
+        )   
+
+    }
+
 }
+
+module.exports = new DB(connection);
