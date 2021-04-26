@@ -70,19 +70,14 @@ const addDepartment = async () => {
             name: 'newDepartment',
             type: 'input',
             message: 'Enter the name of the new department:'
-        },
-        {
-            name: 'departmentID',
-            type: 'number',
-            message: 'New department ID:'
-        },
+        }
     ])
+
         .then((answer) => {
             connection.query(
-                "INSERT INTO department (name) VALUES (id)",
+                "INSERT INTO department SET ?",
                 {
                     name: answer.newDepartment,
-                    id: answer.departmentID,
                 },
                 (err) => {
                     if (err) throw err;
