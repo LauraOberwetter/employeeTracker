@@ -71,18 +71,21 @@ const startApp = () => {
 async function addDepartment() {
     let newDepartment = await db.insertIntoDepartments()
     console.table(newDepartment)
+    startApp();
 }
 
 //add roles
 async function addRoles() {
     let newRole = await db.insertIntoRoles()
     console.table(newRole)
+    startApp();
 }
 
 //add employees
 async function addEmployees() {
     let newEmployee = await db.insertIntoEmployees()
     console.table(newEmployee)
+    startApp();
 }
 
 
@@ -90,6 +93,7 @@ async function addEmployees() {
 async function viewDepartment() {
     let allDepartment = await db.selectAllDepartment()
     console.table(allDepartment)
+    startApp();
 }
 
 
@@ -97,6 +101,7 @@ async function viewDepartment() {
 async function viewRoles() {
     let allRoles = await db.selectAllRoles()
     console.table(allRoles)
+    startApp();
 }
 
 
@@ -105,6 +110,7 @@ async function viewRoles() {
 async function viewEmployees() {
     let allEmployees = await db.selectAllEmployees()
     console.table(allEmployees)
+    startApp();
 }
 
 
@@ -113,6 +119,7 @@ async function viewEmployees() {
 async function updateEmployees() {
     let updateEmployees = await db.selectAllEmployees()
     console.table(allEmployees)
+    startApp();
 }
 
 //start app
