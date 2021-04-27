@@ -48,7 +48,7 @@ const startApp = () => {
             break;
         
         case 'Update employee role':
-            updateEmployees();
+            updateEmpRole();
             break;
   
         case 'Exit':
@@ -58,7 +58,7 @@ const startApp = () => {
       });
   };
 
-//add departments // these functions need to change so we are seeing the database with the new addition
+//add departments
 const addDepartment = async () => {
 
     inquirer.prompt([
@@ -197,12 +197,42 @@ async function viewEmployees() {
 
 
 //update employee roles
+const updateEmpRole = async () => {
 
-async function updateEmployees() {
-    let updateEmployees = await db.selectAllEmployees()
-    console.table(allEmployees)
-    startApp();
+    inquirer.prompt([
+        {
+            name: 'chooseEmp',
+            type: 'rawlist',
+            choices() {
+                let allEmployees = db.selectAllEmployees()
+                console.table(allEmployees)
+            },
+            message: 'Choose which employee you would like to edit:',
+        },
+        {
+            name: 'updatedRole',
+            type: 'number',
+            message: 'Enter their updated role ID:',
+        }
+    ])
+
+        .then((answer) => {
+            connection.query(
+                'UPDATE employee SET ? WHERE ?',
+                {
+                    role_id: answer.updatedRole,
+                },
+                (err) => {
+                    if (err) throw err;
+                    console.log('Employee role successfully updated!')
+                    startApp();
+                }
+            )
+        })
+
 }
+
+
 
 //start app
 startApp();
