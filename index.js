@@ -203,10 +203,7 @@ const updateEmpRole = async () => {
         {
             name: 'chooseEmp',
             type: 'rawlist',
-            choices() {
-                let allEmployees = db.selectAllEmployees()
-                console.table(allEmployees)
-            },
+            choices: allEmployees,
             message: 'Choose which employee you would like to edit:',
         },
         {
