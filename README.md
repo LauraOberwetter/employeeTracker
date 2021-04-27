@@ -25,6 +25,7 @@
   This project will be used to easily interface with a employee data base to review and update company management details
 
 ## Visual
+![ezgif com-gif-maker (1)](https://user-images.githubusercontent.com/23666524/116186970-3f549d00-a6ea-11eb-9615-592e2e170709.gif)
   
 
   ## Contact
