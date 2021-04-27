@@ -81,7 +81,7 @@ const addDepartment = async () => {
                 },
                 (err) => {
                     if (err) throw err;
-                    console.log('Your new department created successfully!')
+                    console.log('Your new department was created successfully!')
                     startApp();
                 }
             )
@@ -91,10 +91,42 @@ const addDepartment = async () => {
 
 
 //add role
-async function addRoles() {
-    let newRole = await db.insertIntoRoles()
-    console.table(newRole)
-    startApp();
+const addRoles = async () => {
+
+    inquirer.prompt([
+        {
+            name: 'newRoleTitle',
+            type: 'input',
+            message: 'Enter the title of the new role:',
+        },
+        {
+            name: 'newRoleSalary',
+            type: 'number',
+            message: 'Enter the salary of the new role:',
+        },
+        {
+            name: 'newRoleDepartment',
+            type: 'number',
+            message: 'Enter the department number of the new role:',
+        },
+    ])
+
+        .then((answer) => {
+            connection.query(
+                "INSERT INTO role SET ?",
+                {
+                    title: answer.newRoleTitle,
+                    salary: answer.newRoleSalary,
+                    department_id: answer.newRoleDepartment
+                },
+                (err) => {
+                    if (err) throw err;
+                    console.log('Your new role was created successfully!')
+                    startApp();
+                }
+            )
+        })
+
 }
 
 //add employees
