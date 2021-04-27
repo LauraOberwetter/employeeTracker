@@ -198,6 +198,8 @@ async function viewEmployees() {
 
 //update employee roles
 const updateEmpRole = async () => {
+    let allEmployees = db.selectAllEmployees()
+    console.table(allEmployees)
 
     inquirer.prompt([
         {

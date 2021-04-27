@@ -8,9 +8,9 @@
     - Contact
 
   ## Description
-   ```
+
   This applicatino is a Content Management System designed for for managing a company's employees using node, inquirer, and MySQL. From the command line, users can view all employees, departments, and roles, as well as add additional employees, departments and roles. All employee data is stored in a MySQL database, where it is accessible to this application. Additionally, all edits made through this interface will be reflected within the MySQL master database.
- ```
+
   
   ## Installation
   ```
@@ -21,9 +21,9 @@
   ```
 
   ## Usage
-   ``` 
+
   This project will be used to easily interface with a employee data base to review and update company management details
-   ```
+
 ## Visual
   
 
