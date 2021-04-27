@@ -130,10 +130,48 @@ const addRoles = async () => {
 }
 
 //add employees
-async function addEmployees() {
-    let newEmployee = await db.insertIntoEmployees()
-    console.table(newEmployee)
-    startApp();
+const addEmployees = async () => {
+
+    inquirer.prompt([
+        {
+            name: 'empFirstName',
+            type: 'input',
+            message: 'First name:',
+        },
+        {
+            name: 'empLastName',
+            type: 'input',
+            message: 'Last name:',
+        },
+        {
+            name: 'empRoleID',
+            type: 'number',
+            message: 'Role ID:',
+        },
+        {
+            name: 'empManID',
+            type: 'number',
+            message: 'Manager ID:',
+        },
+    ])
+
+        .then((answer) => {
+            connection.query(
+                "INSERT INTO employee SET ?",
+                {
+                    first_name: answer.empFirstName,
+                    last_name: answer.empLastName,
+                    role_id: answer.empRoleID,
+                    manager_id: answer.empManID,
+                },
+                (err) => {
+                    if (err) throw err;
+                    console.log('Your new employee was created successfully!')
+                    startApp();
+                }
+            )
+        })
+
 }
 
 
